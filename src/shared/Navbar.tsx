@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const Navbar = () => {
   return (
     <nav className="bg-base-300 shadow-sm">
@@ -8,13 +10,13 @@ const Navbar = () => {
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>All Books</a>
+              <Link to={"/"}>All Books</Link>
             </li>
             <li>
-              <a>Add Book</a>
+              <Link to={"/add-book"}>Add Book</Link>
             </li>
             <li>
-              <a>Borrow Summary</a>
+              <Link to={"/borrow-summary"}>Borrow Summary</Link>
             </li>
           </ul>
         </div>
