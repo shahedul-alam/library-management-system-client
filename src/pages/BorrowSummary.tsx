@@ -1,10 +1,17 @@
-
+import BorrowTable from "@/components/borrowSummary/BorrowTable";
+import { useGetAllBorrowsQuery } from "@/redux/apis/borrowApi";
+import Error from "@/shared/Error";
+import Loading from "@/shared/Loading";
 
 const BorrowSummary = () => {
+  const { data, isLoading, isError, error } = useGetAllBorrowsQuery(undefined);
+
+  if (isLoading) return <Loading />;
+  if (isError) return <Error errorData={error} />;
   return (
-    <div>
-      borrow summary
-    </div>
+    <section className="container mx-auto min-h-screen">
+      <BorrowTable data={data.data} />
+    </section>
   );
 };
 

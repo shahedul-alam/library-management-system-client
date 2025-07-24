@@ -4,7 +4,9 @@ import Error from "../shared/Error";
 import Loading from "../shared/Loading";
 
 const AllBooks = () => {
-  const { data, isLoading, isError, error } = useGetAllBooksQuery(undefined);
+  const { data, isLoading, isError, error } = useGetAllBooksQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+  });
 
   if (isLoading) return <Loading />;
   if (isError) return <Error errorData={error} />;
