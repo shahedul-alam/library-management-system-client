@@ -26,7 +26,20 @@ export const bookApi = createApi({
       }),
       invalidatesTags: ["books"],
     }),
+    borrowBook: builder.mutation({
+      query: (borrowData) => ({
+        url: "/borrow",
+        method: "POST",
+        body: borrowData,
+      }),
+      invalidatesTags: ["books"],
+    }),
   }),
 });
 
-export const { useGetAllBooksQuery, useUpdateBookMutation, useDeleteBookMutation } = bookApi;
+export const {
+  useGetAllBooksQuery,
+  useUpdateBookMutation,
+  useDeleteBookMutation,
+  useBorrowBookMutation,
+} = bookApi;

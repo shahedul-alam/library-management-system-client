@@ -24,9 +24,8 @@ import { Pencil } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { useUpdateBookMutation } from "@/redux/apis/bookApi";
 import Loading from "@/shared/Loading";
-import Error from "@/shared/Error";
 import type { Book } from "@/types/book.types";
-import { successToast } from "@/shared/alerts";
+import { errorToast, successToast } from "@/shared/alerts";
 
 const EditBookDialog = ({ data }: { data: Book }) => {
   const [open, setOpen] = useState(false);
@@ -54,7 +53,7 @@ const EditBookDialog = ({ data }: { data: Book }) => {
     });
   }, [data, form]);
 
-  const [updateBook, { isLoading, isError, error }] = useUpdateBookMutation();
+  const [updateBook, { isLoading }] = useUpdateBookMutation();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     const available: boolean = data.copies > 0 ? true : false;
@@ -66,14 +65,16 @@ const EditBookDialog = ({ data }: { data: Book }) => {
       id: _id,
     };
 
-    const res = await updateBook(updatedBookInfo).unwrap();
-
-    successToast(res.message);
+    const res = await updateBook(updatedBookInfo);
+    if (res.data.success) {
+      successToast(res.data.message);
+    } else {
+      errorToast(res.data.message);
+    }
     setOpen(false);
   };
 
   if (isLoading) return <Loading />;
-  if (isError) return <Error errorData={error} />;
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

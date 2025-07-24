@@ -1,5 +1,5 @@
-import { HandHelping } from "lucide-react";
 import EditBookDialog from "./EditBookDialog";
+import BorrowBook from "./BorrowBook";
 import type { Book } from "@/types/book.types";
 import DeleteBook from "./DeleteBook";
 
@@ -21,9 +21,7 @@ const BookRow = ({ data, index }: { data: Book; index: number }) => {
         <DeleteBook data={data} />
       </td>
       <td>
-        <button className="btn btn-square">
-          <HandHelping />
-        </button>
+        <BorrowBook data={data} />
       </td>
     </tr>
   );
