@@ -5,7 +5,9 @@ const Navbar = () => {
     <nav className="bg-base-300 shadow-sm">
       <div className="container mx-auto navbar">
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl font-bold">LMS</a>
+          <Link className="btn btn-ghost text-xl font-bold" to={"/"}>
+            LMS
+          </Link>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">

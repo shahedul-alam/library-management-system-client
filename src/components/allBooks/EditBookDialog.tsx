@@ -70,6 +70,7 @@ const EditBookDialog = ({ data }: { data: Book }) => {
       successToast(res.data.message);
     } else {
       errorToast(res.data.message);
+      return;
     }
     setOpen(false);
   };

@@ -9,7 +9,7 @@ const BorrowSummary = () => {
   if (isLoading) return <Loading />;
   if (isError) return <Error errorData={error} />;
   return (
-    <section className="container mx-auto min-h-screen">
+    <section className="container mx-auto min-h-screen px-4">
       <BorrowTable data={data.data} />
     </section>
   );

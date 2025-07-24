@@ -12,7 +12,7 @@ const AllBooks = () => {
   if (isError) return <Error errorData={error} />;
 
   return (
-    <section className="container mx-auto min-h-screen">
+    <section className="container mx-auto min-h-screen px-4">
       <BookTable data={data.data} />
     </section>
   );

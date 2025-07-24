@@ -1,10 +1,11 @@
+import AddBookForm from "@/components/addBooks/AddBookForm";
 
 
 const AddBooks = () => {
   return (
-    <div>
-      add books
-    </div>
+    <section className="container mx-auto min-h-screen px-4">
+      <AddBookForm />
+    </section>
   );
 };
 
