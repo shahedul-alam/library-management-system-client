@@ -1,4 +1,4 @@
-const Error = ({ errorData }) => {
+const Error = ({ errorData }: { errorData: any }) => {
   const { data, error } = errorData;
   return (
     <div className="grow flex flex-col items-center justify-center p-8 text-center">
