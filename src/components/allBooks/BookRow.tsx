@@ -1,6 +1,8 @@
-import { HandHelping, Pencil, Trash2 } from "lucide-react";
+import { HandHelping, Trash2 } from "lucide-react";
+import EditBookDialog from "./EditBookDialog";
+import type { Book } from "@/types/book.types";
 
-const BookRow = ({ data, index }) => {
+const BookRow = ({ data, index }: { data: Book, index: number }) => {
   const { author, available, copies, genre, isbn, title } = data;
   return (
     <tr className="hover:bg-base-300">
@@ -12,9 +14,7 @@ const BookRow = ({ data, index }) => {
       <td>{copies}</td>
       <td>{available.toString()}</td>
       <td>
-        <button className="btn btn-square">
-          <Pencil />
-        </button>
+        <EditBookDialog data={data} />
       </td>
       <td>
         <button className="btn btn-square">

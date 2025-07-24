@@ -1,6 +1,7 @@
+import type { Book } from "@/types/book.types";
 import BookRow from "./BookRow";
 
-const BookTable = ({ data }) => {
+const BookTable = ({ data }: { data: Book[] }) => {
   return (
     <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100 my-12">
       <table className="table">
