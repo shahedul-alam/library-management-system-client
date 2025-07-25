@@ -8,7 +8,7 @@ const AllBooks = () => {
     refetchOnMountOrArgChange: true,
   });
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Loading full={true} />;
   if (isError) return <Error errorData={error} />;
 
   return (

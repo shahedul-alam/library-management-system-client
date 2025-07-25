@@ -55,7 +55,7 @@ const BorrowBook = ({ data }: { data: Book }) => {
     navigate("/borrow-summary");
   };
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Loading full={false} />;
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>

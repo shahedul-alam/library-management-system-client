@@ -31,7 +31,7 @@ const DeleteBook = ({ data }: { data: Book }) => {
     }
   };
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Loading full={false} />;
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>

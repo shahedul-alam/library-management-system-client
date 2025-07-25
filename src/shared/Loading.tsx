@@ -1,6 +1,13 @@
-const Loading = () => {
+import { cn } from "@/lib/utils";
+
+const Loading = ({ full }: {full: boolean}) => {
   return (
-    <div className="container mx-auto min-h-screen flex justify-center">
+    <div
+      className={cn("container mx-auto flex justify-start", {
+        "min-h-screen": full,
+        "justify-center": full,
+      })}
+    >
       <span className="loading loading-ring loading-xl"></span>
     </div>
   );

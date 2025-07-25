@@ -75,7 +75,7 @@ const EditBookDialog = ({ data }: { data: Book }) => {
     setOpen(false);
   };
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Loading full={false} />;
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

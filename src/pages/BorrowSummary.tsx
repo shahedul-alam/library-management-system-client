@@ -6,7 +6,7 @@ import Loading from "@/shared/Loading";
 const BorrowSummary = () => {
   const { data, isLoading, isError, error } = useGetAllBorrowsQuery(undefined);
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Loading full={true} />;
   if (isError) return <Error errorData={error} />;
   return (
     <section className="container mx-auto min-h-screen px-4">

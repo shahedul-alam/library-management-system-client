@@ -40,7 +40,7 @@ const AddBookForm = () => {
     navigate("/");
   };
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Loading full={true} />;
 
   return (
     <div className="md:w-3/4 md:mx-auto my-12">
