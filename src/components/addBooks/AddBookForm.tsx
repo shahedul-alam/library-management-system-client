@@ -11,7 +11,7 @@ import {
 } from "../ui/select";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import { useAddBookMutation } from "@/redux/apis/bookApi";
+import { useAddBookMutation } from "@/redux/apis/libraryApi";
 import Loading from "@/shared/Loading";
 import { errorToast, successToast } from "@/shared/alerts";
 import { useNavigate } from "react-router";
@@ -39,8 +39,6 @@ const AddBookForm = () => {
     form.reset();
     navigate("/");
   };
-
-  if (isLoading) return <Loading full={true} />;
 
   return (
     <div className="md:w-3/4 md:mx-auto my-12">
@@ -152,8 +150,11 @@ const AddBookForm = () => {
           {/* submit button */}
           <DialogFooter>
             <Button variant="outline">Cancel</Button>
-            <Button type="submit" disabled={!form.formState.isDirty}>
-              Save changes
+            <Button
+              type="submit"
+              disabled={!form.formState.isDirty || isLoading}
+            >
+              {isLoading ? <Loading full={true} /> : "Save changes"}
             </Button>
           </DialogFooter>
         </form>

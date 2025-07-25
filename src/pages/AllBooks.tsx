@@ -1,12 +1,10 @@
 import BookTable from "../components/allBooks/BookTable";
-import { useGetAllBooksQuery } from "../redux/apis/bookApi";
+import { useGetAllBooksQuery } from "../redux/apis/libraryApi";
 import Error from "../shared/Error";
 import Loading from "../shared/Loading";
 
 const AllBooks = () => {
-  const { data, isLoading, isError, error } = useGetAllBooksQuery(undefined, {
-    refetchOnMountOrArgChange: true,
-  });
+  const { data, isLoading, isError, error } = useGetAllBooksQuery(undefined);
 
   if (isLoading) return <Loading full={true} />;
   if (isError) return <Error errorData={error} />;

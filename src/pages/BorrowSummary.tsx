@@ -1,5 +1,5 @@
 import BorrowTable from "@/components/borrowSummary/BorrowTable";
-import { useGetAllBorrowsQuery } from "@/redux/apis/borrowApi";
+import { useGetAllBorrowsQuery } from "@/redux/apis/libraryApi";
 import Error from "@/shared/Error";
 import Loading from "@/shared/Loading";
 

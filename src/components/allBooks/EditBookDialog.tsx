@@ -22,7 +22,7 @@ import {
 import { Input } from "../ui/input";
 import { Pencil } from "lucide-react";
 import { Textarea } from "../ui/textarea";
-import { useUpdateBookMutation } from "@/redux/apis/bookApi";
+import { useUpdateBookMutation } from "@/redux/apis/libraryApi";
 import Loading from "@/shared/Loading";
 import type { Book } from "@/types/book.types";
 import { errorToast, successToast } from "@/shared/alerts";

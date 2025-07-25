@@ -1,7 +1,7 @@
 import { Trash2 } from "lucide-react";
 import { Button } from "../ui/button";
 import type { Book } from "@/types/book.types";
-import { useDeleteBookMutation } from "@/redux/apis/bookApi";
+import { useDeleteBookMutation } from "@/redux/apis/libraryApi";
 import Loading from "@/shared/Loading";
 import {
   AlertDialog,

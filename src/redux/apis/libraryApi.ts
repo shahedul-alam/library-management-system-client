@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-export const bookApi = createApi({
-  reducerPath: "bookApi",
+export const libraryApi = createApi({
+  reducerPath: "libraryApi ",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://library-management-system-green-three.vercel.app/api",
   }),
-  tagTypes: ["books"],
+  tagTypes: ["books", "borrow"],
   endpoints: (builder) => ({
     getAllBooks: builder.query({
       query: () => "/books",
@@ -24,7 +24,7 @@ export const bookApi = createApi({
         url: `/books/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["books"],
+      invalidatesTags: ["books", "borrow"],
     }),
     addBook: builder.mutation({
       query: (newBook) => ({
@@ -34,6 +34,18 @@ export const bookApi = createApi({
       }),
       invalidatesTags: ["books"],
     }),
+    getAllBorrows: builder.query({
+      query: () => "/borrow",
+      providesTags: ["borrow"],
+    }),
+    borrowBook: builder.mutation({
+      query: (borrowData) => ({
+        url: "/borrow",
+        method: "POST",
+        body: borrowData,
+      }),
+      invalidatesTags: ["borrow", "books"],
+    }),
   }),
 });
 
@@ -42,4 +54,6 @@ export const {
   useUpdateBookMutation,
   useDeleteBookMutation,
   useAddBookMutation,
-} = bookApi;
+  useGetAllBorrowsQuery,
+  useBorrowBookMutation,
+} = libraryApi;
